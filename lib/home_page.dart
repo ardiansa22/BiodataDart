@@ -12,7 +12,9 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              
               Icon(Icons.list_alt),
               Text(
                 "List Pemain",
@@ -56,19 +58,22 @@ class HomePage extends StatelessWidget {
                         ClipRRect(
                           child: Image(
                             image: AssetImage(listPemain[index].gambar),
-                            width: 50, // Sesuaikan lebar gambar sesuai kebutuhan
-                            height: 50, // Sesuaikan tinggi gambar sesuai kebutuhan
+                            width: 100, // Sesuaikan lebar gambar sesuai kebutuhan
+                            height: 100, // Sesuaikan tinggi gambar sesuai kebutuhan
                           ),
                         ),
+                        const SizedBox(width: 10, height: 10), // Memberikan jarak antara gambar dan teks
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(listPemain[index].nama),
-                            Text(listPemain[index].noPunggung),
-                            Text(listPemain[index].posisi),
+                              buildInfoContainer("Nama", listPemain[index].nama, 16, true),
+                              buildInfoContainer("No Punggung", listPemain[index].noPunggung, 14, false),
+                              buildInfoContainer("Posisi", listPemain[index].posisi, 14, false),
                           ],
-                        )
+                        ),
                       ],
-                    ),
+                    )
+
                   ),
                 );
               },
@@ -78,4 +83,17 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+  Widget buildInfoContainer(String label, String value, double fontSize, bool isBold) {
+  return Container(
+    margin: const EdgeInsets.only(bottom: 4),
+    child: Text(
+      "$label: $value",
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+      ),
+    ),
+  );
+}
+
 }

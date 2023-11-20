@@ -12,14 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.red,
       ),
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text("Aplikasi List Pemain"),
+          title: const Text("PERSIJA TEAM"),
         ),
         body: const HomePage(),
       )

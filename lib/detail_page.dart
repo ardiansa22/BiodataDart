@@ -9,7 +9,7 @@ class DetailPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Aplikasi Biodata')),
+      appBar: AppBar(title: const Text('PERSIJA TEAM')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -17,10 +17,10 @@ class DetailPages extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               alignment: Alignment.center,
-              decoration: BoxDecoration(color: Colors.orange),
+              decoration: const BoxDecoration(color: Colors.red),
               child: Text(
                 player.nama,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
@@ -30,27 +30,20 @@ class DetailPages extends StatelessWidget {
             const SizedBox(height: 10),
             Image(image: AssetImage(player.gambar)),
             const SizedBox(height: 10),
-            Row(
-              children: [
-                btnprofile(Icons.email, Colors.blue, 'https://www.google.com'),
-                const SizedBox(width: 10),
-                btnprofile(Icons.chat_bubble, Colors.black, 'https://wa.me/085523873288'),
-                const SizedBox(width: 10),
-                btnprofile(Icons.phone, Colors.red, 'tel:+6285523873288'),
-              ],
-            ),
-            const SizedBox(height: 10),
+           
+            
 
-            // Placeholder functions (replace with actual implementations)
+          
+
+            const SizedBox(height: 10),
             textProfile("Name", player.nama),
             textProfile("Hobby", player.posisi),
             textProfile("Address", player.noPunggung),
-
             const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.all(10),
               alignment: Alignment.center,
-              decoration: BoxDecoration(color: Colors.orange),
+              decoration: const BoxDecoration(color: Colors.red),
               child: const Text(
                 'Deskripsi',
                 style: TextStyle(
@@ -60,6 +53,7 @@ class DetailPages extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 10,),
 
             // Display the description from the Player
             Text(player.detail),
@@ -76,8 +70,20 @@ class DetailPages extends StatelessWidget {
   }
 
   // Placeholder for textProfile function (replace with actual implementation)
-  Widget textProfile(String label, String value) {
-    // Implement your text widget here
-    return Container();
+ Row textProfile(String label,String teks) {
+    return Row(
+              children: [
+                Container(
+                  width: 80,
+                  child: Text(
+                    "- $label",
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+                Text (":",style: TextStyle(fontSize: 18)),
+                Text(teks,style: const TextStyle(fontSize: 19)),
+               
+              ],
+            );
   }
 }
